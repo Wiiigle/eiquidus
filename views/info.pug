@@ -37,13 +37,13 @@ block content
           p
             em Return data from coind
           ul
-            if settings.api_page.public_apis.rpc.tnft_get.enabled == true && settings.api_cmds['tnft_get'] != null && settings.api_cmds['tnft_get'] != ''
+            if settings.api_page.public_apis.rpc.wiii_get.enabled == true && settings.api_cmds['wiii_get'] != null && settings.api_cmds['wiii_get'] != ''
               li
                 p
-                  div.fw-bold tnft_get
+                  div.fw-bold wiii_get
                   div
-                    em #{settings.locale.api_tnft_get}
-                  a(href='/api/tnft_get') #{address}/api/tnft_get
+                    em #{settings.locale.api_wiii_get}
+                  a(href='/api/wiii_get') #{address}/api/wiii_get
             if settings.api_page.public_apis.rpc.getdifficulty.enabled == true && settings.api_cmds['getdifficulty'] != null && settings.api_cmds['getdifficulty'] != ''
               li
                 p
