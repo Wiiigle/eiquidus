@@ -151,6 +151,7 @@
   "api_documentation": "API Documentation",
   "api_calls": "API Calls",
   "api_getnetworkhashps": "Returns the current network hashrate. (hash/s)",
+  "api_get-wiii": "Returns value at namespace/key.",
   "api_getdifficulty": "Returns the current difficulty.",
   "api_getconnectioncount": "Returns the number of connections the block explorer has to other nodes.",
   "api_getmasternodelist": "Returns the complete list of masternodes on the network.",
