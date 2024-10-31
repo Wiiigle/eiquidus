@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "../../explorer"
+		},
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../../.wiiicoin"
+		}
+	],
+	"settings": {}
+}
