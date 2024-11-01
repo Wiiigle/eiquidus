@@ -40,10 +40,10 @@ block content
             if settings.api_page.public_apis.rpc.wiii_get.enabled == true && settings.api_cmds['wiii_get'] != null && settings.api_cmds['wiii_get'] != ''
               li
                 p
-                  div.fw-bold wiii_get
+                  div.fw-bold wiii_get 
                   div
-                    em #{settings.locale.api_wiii_get}
-                  a(href='/api/wiii_get') #{address}/api/wiii_get
+                    em #{settings.localization.api_wiii_get}
+                  a(href='/api/wiii_get?namespace_id=NTNt7Ku9bygCh2NpkN2BZE7iaxoavrvG7v&key=sample') #{address}/api/wiii_get
             if settings.api_page.public_apis.rpc.getdifficulty.enabled == true && settings.api_cmds['getdifficulty'] != null && settings.api_cmds['getdifficulty'] != ''
               li
                 p
