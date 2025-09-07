@@ -342,13 +342,13 @@ html(lang='en')
           return '<div class="card-header"><strong>Price <span class="small fw-normal">(#{market_currency})</span></strong></div><div class="card-body"><div id="pricePanelLoading" class="header-panel"><i class="fa-solid fa-spinner fa-spin-pulse"></i></div><div id="pricepanel" class="header-panel" style="display:none;"><span class="fa-solid fa-rocket"></span><label id="lastPrice">-</label></div></div>';
         }
         function getUSDPricePanel() {
-          return '<div class="card-header"><strong>Price <span class="small fw-normal">(USD)</span></strong></div><div class="card-body"><div id="usdPricePanelLoading" class="header-panel"><i class="fa-solid fa-spinner fa-spin-pulse"></i></div><div id="usdpricepanel" class="header-panel" style="display:none;"><span class="fa-solid fa-dollar-sign"></span><label id="lastUSDPrice">-</label></div></div>';
+          return '<div class="card-header"><strong>Price <span class="small fw-normal">(GBP)</span></strong></div><div class="card-body"><div id="usdPricePanelLoading" class="header-panel"><i class="fa-solid fa-spinner fa-spin-pulse"></i></div><div id="usdpricepanel" class="header-panel" style="display:none;"><span class="fa-solid fa-sterling-sign"></span><label id="lastUSDPrice">-</label></div></div>';
         }
         function getMarketCapPanel() {
           return '<div class="card-header"><strong>Market Cap <span class="small fw-normal">(#{market_currency})</span></strong></div><div class="card-body"><div id="marketCapPanelLoading" class="header-panel"><i class="fa-solid fa-spinner fa-spin-pulse"></i></div><div id="marketCapPanel" class="header-panel" style="display:none;"><span class="fa-solid fa-chart-line"></span><label id="marketCap"></label></div></div>';
         }
         function getUSDMarketCapPanel() {
-          return '<div class="card-header"><strong>Market Cap <span class="small fw-normal">(USD)</span></strong></div><div class="card-body"><div id="usdMarketCapPanelLoading" class="header-panel"><i class="fa-solid fa-spinner fa-spin-pulse"></i></div><div id="usdMarketCapPanel" class="header-panel" style="display:none;"><span class="fa-solid fa-chart-line"></span><label id="usdMarketCap"></label></div></div>';
+          return '<div class="card-header"><strong>Market Cap <span class="small fw-normal">(GBP)</span></strong></div><div class="card-body"><div id="usdMarketCapPanelLoading" class="header-panel"><i class="fa-solid fa-spinner fa-spin-pulse"></i></div><div id="usdMarketCapPanel" class="header-panel" style="display:none;"><span class="fa-solid fa-chart-line"></span><label id="usdMarketCap"></label></div></div>';
         }
         function getLogoPanel() {
           return `<img id="logo-panel" src="#{settings.shared_pages.logo}" style="height:128px;" alt="${"#{settings.coin.name}".replace(/"/g, '&quot;')} Logo" title="${"#{settings.coin.name}".replace(/"/g, '&quot;')} Logo" />`;

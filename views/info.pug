@@ -37,13 +37,13 @@ block content
           p
             em Return data from coind
           ul
-            if settings.api_page.public_apis.rpc.wiii_get.enabled == true && settings.api_cmds['wiii_get'] != null && settings.api_cmds['wiii_get'] != ''
+            if settings.api_page.public_apis.rpc.wg.enabled == true && settings.api_cmds['wg'] != null && settings.api_cmds['wg'] != ''
               li
                 p
-                  div.fw-bold wiii_get 
+                  div.fw-bold wg 
                   div
-                    em #{settings.localization.api_wiii_get}
-                  a(href='/api/wiii_get?namespace_id=NTNt7Ku9bygCh2NpkN2BZE7iaxoavrvG7v&key=sample') #{address}/api/wiii_get
+                    em #{settings.localization.api_wg}
+                  a(href='/api/wg?n=NTNt7Ku9bygCh2NpkN2BZE7iaxoavrvG7v&k=sample') #{address}/api/wg
             if settings.api_page.public_apis.rpc.getdifficulty.enabled == true && settings.api_cmds['getdifficulty'] != null && settings.api_cmds['getdifficulty'] != ''
               li
                 p
