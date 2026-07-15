@@ -110,7 +110,7 @@ block content
           data: postData
         })
         .done(function(data) {
-          showClaimAlert((data.status == 'success' ? 'success' : 'danger'), data.message, (data.status == 'success' && message == ''));
+          showClaimAlert((data.status == 'success' ? 'success' : 'danger'), data.message, (data.status == 'success' && postData.message == ''));
 
           if (
             '#{selected_captcha_name}' == 'google_recaptcha2' &&
