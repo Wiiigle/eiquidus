@@ -710,7 +710,12 @@ app.use("/ext/getaddress/:hash", function (req, res) {
               last_txs: last_txs,
             };
 
-            res.send(a_ext);
+            db.get_claim_name(req.params.hash, function (claim_name) {
+              a_ext.claim_name =
+                claim_name == null || claim_name == "" ? "" : claim_name;
+
+              res.send(a_ext);
+            });
           } else
             res.send({ error: "address not found.", hash: req.params.hash });
         }
