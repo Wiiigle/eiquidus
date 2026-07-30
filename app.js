@@ -346,6 +346,37 @@ app.post("/claim", function (req, res) {
   );
 });
 
+// Verify a signed message without publishing or changing any explorer data.
+app.post("/verify-message", function (req, res) {
+  const address =
+    typeof req.body.address == "string" ? req.body.address.trim() : "";
+  const message =
+    typeof req.body.message == "string" ? req.body.message : "";
+  const signature =
+    typeof req.body.signature == "string" ? req.body.signature.trim() : "";
+
+  if (
+    address == "" ||
+    message == "" ||
+    signature == "" ||
+    address.length > 128 ||
+    message.length > 100000 ||
+    signature.length > 1024
+  ) {
+    return res.status(400).json({
+      valid: false,
+      message: "A valid address, message and signature are required",
+    });
+  }
+
+  lib.verify_message(address, signature, message, function (valid) {
+    res.setHeader("Cache-Control", "no-store");
+    res.json({
+      valid: valid === true,
+    });
+  });
+});
+
 function validate_captcha(captcha_enabled, data, cb) {
   // check if captcha is enabled for the requested feature
   if (captcha_enabled == true) {
