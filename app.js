@@ -346,8 +346,22 @@ app.post("/claim", function (req, res) {
   );
 });
 
+function set_verify_message_cors_headers(res) {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Accept, Content-Type");
+  res.setHeader("Access-Control-Max-Age", "86400");
+}
+
+app.options("/verify-message", function (req, res) {
+  set_verify_message_cors_headers(res);
+  res.status(204).end();
+});
+
 // Verify a signed message without publishing or changing any explorer data.
 app.post("/verify-message", function (req, res) {
+  set_verify_message_cors_headers(res);
+  res.setHeader("Cache-Control", "no-store");
   const address =
     typeof req.body.address == "string" ? req.body.address.trim() : "";
   const message =
@@ -370,7 +384,6 @@ app.post("/verify-message", function (req, res) {
   }
 
   lib.verify_message(address, signature, message, function (valid) {
-    res.setHeader("Cache-Control", "no-store");
     res.json({
       valid: valid === true,
     });
