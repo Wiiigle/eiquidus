@@ -1,27 +1,26 @@
 /*
- * Wiiicoin modern explorer theme
- * Palette derived from the Wiiicoin logo:
- * primary violet #AA55AA, bright violet #C054C6, soft plum #996699.
+ * Wiiicoin explorer theme aligned with the W3Sign demo.
+ * Shared palette: near-black surfaces, cream text and gold accents.
  */
 
 :root {
-  --wiii-primary: #aa55aa;
-  --wiii-primary-rgb: 170, 85, 170;
-  --wiii-primary-bright: #c054c6;
-  --wiii-primary-soft: #d993da;
-  --wiii-plum: #996699;
-  --wiii-ink: #0d0912;
-  --wiii-bg: #100b17;
-  --wiii-bg-elevated: #17101f;
-  --wiii-surface: #1d1427;
-  --wiii-surface-strong: #251a31;
-  --wiii-surface-hover: #2c1f3a;
-  --wiii-text: #f8f4fb;
-  --wiii-text-soft: #d9cfdf;
-  --wiii-muted: #a99db2;
-  --wiii-border: rgba(217, 147, 218, 0.18);
-  --wiii-border-strong: rgba(217, 147, 218, 0.34);
-  --wiii-glow: rgba(170, 85, 170, 0.26);
+  --wiii-primary: #f7c948;
+  --wiii-primary-rgb: 247, 201, 72;
+  --wiii-primary-bright: #fff0a3;
+  --wiii-primary-soft: #f7c948;
+  --wiii-plum: #9a6108;
+  --wiii-ink: #050403;
+  --wiii-bg: #100d07;
+  --wiii-bg-elevated: #151107;
+  --wiii-surface: #1a150b;
+  --wiii-surface-strong: #211a0c;
+  --wiii-surface-hover: #2b210d;
+  --wiii-text: #fff8dc;
+  --wiii-text-soft: #eadfb8;
+  --wiii-muted: #c7b98e;
+  --wiii-border: rgba(247, 201, 72, 0.26);
+  --wiii-border-strong: rgba(247, 201, 72, 0.55);
+  --wiii-glow: rgba(247, 201, 72, 0.24);
   --wiii-success: #4fd1a1;
   --wiii-warning: #f7c873;
   --wiii-danger: #ff7f9d;
@@ -45,7 +44,7 @@ body {
   color: var(--wiii-text-soft);
   background:
     radial-gradient(circle at 10% -10%, rgba(var(--wiii-primary-rgb), 0.22), transparent 34rem),
-    radial-gradient(circle at 90% 16%, rgba(192, 84, 198, 0.12), transparent 28rem),
+    radial-gradient(circle at 90% 16%, rgba(247, 201, 72, 0.14), transparent 28rem),
     linear-gradient(180deg, var(--wiii-bg) 0%, var(--wiii-ink) 100%);
   background-attachment: fixed;
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -73,7 +72,7 @@ body::before {
 
 a {
   color: var(--wiii-primary-soft);
-  text-decoration-color: rgba(217, 147, 218, 0.36);
+  text-decoration-color: rgba(247, 201, 72, 0.36);
   text-underline-offset: 0.2em;
   transition: color 160ms ease, opacity 160ms ease, text-decoration-color 160ms ease;
 }
@@ -111,8 +110,8 @@ hr {
   padding: 0.55rem 0;
   color: var(--wiii-text);
   background:
-    linear-gradient(110deg, rgba(170, 85, 170, 0.18), transparent 38%),
-    rgba(13, 9, 18, 0.88) !important;
+    linear-gradient(110deg, rgba(247, 201, 72, 0.14), transparent 38%),
+    rgba(5, 4, 3, 0.9) !important;
   border-bottom: 1px solid var(--wiii-border);
   box-shadow: 0 10px 35px rgba(0, 0, 0, 0.28);
   backdrop-filter: blur(20px) saturate(135%);
@@ -167,7 +166,7 @@ a:hover > .logo-main {
   align-items: center;
   min-height: 42px;
   padding: 0.62rem 0.82rem;
-  color: rgba(248, 244, 251, 0.72);
+  color: rgba(255, 248, 220, 0.72);
   border: 1px solid transparent;
   border-radius: 12px;
   font-size: 0.91rem;
@@ -191,8 +190,8 @@ a:hover > .logo-main {
 #main-header-side .nav-link.active,
 #main-header-side .nav-item.active > .nav-link {
   color: #fff;
-  background: linear-gradient(135deg, rgba(var(--wiii-primary-rgb), 0.31), rgba(192, 84, 198, 0.13));
-  border-color: rgba(217, 147, 218, 0.3);
+  background: linear-gradient(135deg, rgba(var(--wiii-primary-rgb), 0.24), rgba(154, 97, 8, 0.13));
+  border-color: rgba(247, 201, 72, 0.38);
   box-shadow: inset 0 1px rgba(255, 255, 255, 0.07), 0 8px 22px rgba(0, 0, 0, 0.18);
 }
 
@@ -233,7 +232,7 @@ a:hover > .logo-main {
   min-width: 14rem;
   padding: 0.55rem;
   color: var(--wiii-text-soft);
-  background: rgba(24, 16, 32, 0.98) !important;
+  background: rgba(12, 10, 6, 0.98) !important;
   border: 1px solid var(--wiii-border);
   border-radius: 14px;
   box-shadow: var(--wiii-shadow-lg);
@@ -249,13 +248,13 @@ a:hover > .logo-main {
 .dropdown-item:hover,
 .dropdown-item:focus,
 .dropdown-item.active {
-  color: #fff;
+  color: var(--wiii-primary-bright);
   background: rgba(var(--wiii-primary-rgb), 0.2);
 }
 
 #search-header-button,
 #search-navbar-collapse .btn {
-  color: #fff;
+  color: #100d07;
   background: linear-gradient(135deg, var(--wiii-primary), var(--wiii-primary-bright));
   border: 0;
   border-radius: 11px;
@@ -272,7 +271,7 @@ a:hover > .logo-main {
 
 #search-navbar-collapse {
   padding: 0.65rem 1rem 0.9rem;
-  background: rgba(13, 9, 18, 0.75);
+  background: rgba(5, 4, 3, 0.78);
   border-top: 1px solid var(--wiii-border);
 }
 
@@ -310,8 +309,8 @@ a:hover > .logo-main {
   min-height: 132px;
   padding: clamp(1.3rem, 3vw, 2.15rem);
   background:
-    radial-gradient(circle at 90% 20%, rgba(217, 147, 218, 0.14), transparent 15rem),
-    linear-gradient(135deg, rgba(170, 85, 170, 0.13), rgba(29, 20, 39, 0.86) 46%, rgba(17, 11, 24, 0.95));
+    radial-gradient(circle at 90% 20%, rgba(247, 201, 72, 0.14), transparent 15rem),
+    linear-gradient(135deg, rgba(247, 201, 72, 0.1), rgba(20, 16, 8, 0.86) 46%, rgba(5, 4, 3, 0.95));
   border: 1px solid var(--wiii-border);
   border-radius: var(--wiii-radius-lg);
   box-shadow: var(--wiii-shadow-lg);
@@ -325,7 +324,7 @@ a:hover > .logo-main {
   height: 260px;
   pointer-events: none;
   content: "";
-  background: conic-gradient(from 210deg, transparent, rgba(192, 84, 198, 0.22), transparent 35%);
+  background: conic-gradient(from 210deg, transparent, rgba(247, 201, 72, 0.2), transparent 35%);
   border-radius: 50%;
   filter: blur(12px);
 }
@@ -377,7 +376,7 @@ a:hover > .logo-main {
 /* Cards and dashboard panels */
 .card {
   color: var(--wiii-text-soft);
-  background: linear-gradient(145deg, rgba(37, 26, 49, 0.9), rgba(23, 16, 31, 0.94));
+  background: linear-gradient(145deg, rgba(32, 25, 11, 0.9), rgba(12, 10, 6, 0.94));
   border: 1px solid var(--wiii-border) !important;
   border-radius: var(--wiii-radius);
   box-shadow: var(--wiii-shadow-sm);
@@ -426,8 +425,8 @@ a:hover > .logo-main {
   min-height: 130px;
   overflow: hidden;
   background:
-    radial-gradient(circle at 80% 10%, rgba(192, 84, 198, 0.12), transparent 9rem),
-    linear-gradient(145deg, rgba(37, 26, 49, 0.94), rgba(22, 15, 30, 0.96));
+    radial-gradient(circle at 80% 10%, rgba(247, 201, 72, 0.12), transparent 9rem),
+    linear-gradient(145deg, rgba(32, 25, 11, 0.94), rgba(12, 10, 6, 0.96));
   transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
 }
 
@@ -479,14 +478,14 @@ a:hover > .logo-main {
 .dataTables_wrapper input {
   min-height: 43px;
   color: var(--wiii-text);
-  background-color: rgba(12, 8, 17, 0.72);
+  background-color: rgba(12, 10, 6, 0.72);
   border: 1px solid var(--wiii-border);
   border-radius: 11px;
   box-shadow: inset 0 1px rgba(255, 255, 255, 0.025);
 }
 
 .form-control::placeholder {
-  color: #7f7388;
+  color: #8f8463;
 }
 
 .form-control:focus,
@@ -494,7 +493,7 @@ a:hover > .logo-main {
 .dataTables_wrapper select:focus,
 .dataTables_wrapper input:focus {
   color: #fff;
-  background-color: rgba(12, 8, 17, 0.9);
+  background-color: rgba(12, 10, 6, 0.9);
   border-color: var(--wiii-primary-bright);
   box-shadow: 0 0 0 0.22rem rgba(var(--wiii-primary-rgb), 0.14), 0 10px 28px rgba(0, 0, 0, 0.22);
 }
@@ -524,7 +523,7 @@ a:hover > .logo-main {
 
 .btn-success,
 .btn-primary {
-  color: #fff;
+  color: #100d07;
   background: linear-gradient(135deg, var(--wiii-primary), var(--wiii-primary-bright));
   border-color: transparent;
   box-shadow: 0 10px 26px rgba(var(--wiii-primary-rgb), 0.22);
@@ -534,8 +533,8 @@ a:hover > .logo-main {
 .btn-success:focus,
 .btn-primary:hover,
 .btn-primary:focus {
-  color: #fff;
-  background: linear-gradient(135deg, #b660b6, #cf62d5);
+  color: #100d07;
+  background: linear-gradient(135deg, #e8b123, #fff0a3);
   border-color: transparent;
   box-shadow: 0 14px 32px rgba(var(--wiii-primary-rgb), 0.34);
 }
@@ -555,7 +554,7 @@ a:hover > .logo-main {
 #index-search {
   width: min(100%, 920px);
   padding: 0.8rem;
-  background: rgba(22, 15, 30, 0.72);
+  background: rgba(12, 10, 6, 0.72);
   border: 1px solid var(--wiii-border);
   border-radius: 15px;
   box-shadow: var(--wiii-shadow-sm);
@@ -590,7 +589,7 @@ a:hover > .logo-main {
 
 .table thead th {
   color: #fff;
-  background: rgba(12, 8, 17, 0.46);
+  background: rgba(5, 4, 3, 0.46);
   border-bottom: 1px solid var(--wiii-border-strong);
   font-size: 0.76rem;
   font-weight: 760;
@@ -660,7 +659,7 @@ a:hover > .logo-main {
 }
 
 .page-item.disabled .page-link {
-  color: #685e70;
+  color: #776e54;
   background: rgba(255, 255, 255, 0.018);
   border-color: rgba(255, 255, 255, 0.035);
 }
@@ -698,7 +697,7 @@ a:hover > .logo-main {
 
 .alert {
   color: var(--wiii-text-soft);
-  background: rgba(29, 20, 39, 0.92);
+  background: rgba(20, 16, 8, 0.92);
   border: 1px solid var(--wiii-border);
   border-radius: 14px;
   box-shadow: var(--wiii-shadow-sm);
@@ -725,7 +724,7 @@ pre {
 
 code {
   padding: 0.18em 0.42em;
-  color: #f2c5f3;
+  color: var(--wiii-primary-bright);
   background: rgba(var(--wiii-primary-rgb), 0.11);
   border: 1px solid rgba(var(--wiii-primary-rgb), 0.15);
   border-radius: 6px;
@@ -734,7 +733,7 @@ code {
 pre {
   padding: 1rem;
   color: var(--wiii-text-soft);
-  background: #0c0811;
+  background: #090804;
   border: 1px solid var(--wiii-border);
   border-radius: 12px;
 }
@@ -755,8 +754,8 @@ pre {
 /* Side navigation */
 #side-nav-bar {
   background:
-    linear-gradient(180deg, rgba(170, 85, 170, 0.12), transparent 30%),
-    #130d1b !important;
+    linear-gradient(180deg, rgba(247, 201, 72, 0.1), transparent 30%),
+    #0c0a06 !important;
   border-right: 1px solid var(--wiii-border);
   box-shadow: 14px 0 38px rgba(0, 0, 0, 0.2);
 }
@@ -770,7 +769,7 @@ pre {
 }
 
 #side-offcanvas {
-  background: #130d1b;
+  background: #0c0a06;
   border-right: 1px solid var(--wiii-border);
 }
 
@@ -780,8 +779,8 @@ pre {
   padding: 0.7rem 1rem;
   color: var(--wiii-muted);
   background:
-    linear-gradient(90deg, rgba(170, 85, 170, 0.09), transparent 35%),
-    rgba(13, 9, 18, 0.94) !important;
+    linear-gradient(90deg, rgba(247, 201, 72, 0.09), transparent 35%),
+    rgba(5, 4, 3, 0.94) !important;
   border-top: 1px solid var(--wiii-border);
   box-shadow: 0 -12px 34px rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(18px);
@@ -888,7 +887,7 @@ pre {
     gap: 0.2rem;
     margin: 0.75rem 0 0;
     padding: 0.7rem;
-    background: rgba(13, 9, 18, 0.72);
+    background: rgba(5, 4, 3, 0.78);
     border: 1px solid var(--wiii-border);
     border-radius: 16px;
   }
