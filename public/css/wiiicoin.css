@@ -598,6 +598,31 @@ a:hover > .logo-main {
   white-space: nowrap;
 }
 
+/* Bootstrap's contextual table classes can reintroduce dark Slate text.
+ * Keep headings, currency units and values readable on W3Sign surfaces. */
+.table thead th,
+.table thead th span,
+.table thead th .small,
+.table thead th .fw-normal {
+  color: var(--wiii-text) !important;
+}
+
+.table tbody td,
+.table tbody th {
+  color: var(--wiii-text-soft);
+}
+
+.table tbody td.table-success,
+.table tbody td.table-warning,
+.table tbody td.table-danger,
+.table tbody td.table-info,
+.table tbody tr.table-success > td,
+.table tbody tr.table-warning > td,
+.table tbody tr.table-danger > td,
+.table tbody tr.table-info > td {
+  color: var(--wiii-text) !important;
+}
+
 .table tbody tr {
   transition: background-color 150ms ease, box-shadow 150ms ease;
 }
