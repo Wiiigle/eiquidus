@@ -1186,8 +1186,8 @@ app.use("/ext/getsummary", function (req, res) {
                     difficultyHybrid: difficultyHybrid,
                     supply:
                       stats == null || stats.supply == null
-                        ? 30000000
-                        : stats.supply + 30000000,
+                        ? 0
+                        : stats.supply,
                     hashrate: hashrate,
                     lastPrice:
                       stats == null || stats.last_price == null ? 10 : 10,
