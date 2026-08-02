@@ -376,7 +376,8 @@ a:hover > .logo-main {
 /* Cards and dashboard panels */
 .card {
   color: var(--rva-text-soft);
-  background: linear-gradient(145deg, rgba(32, 25, 11, 0.9), rgba(12, 10, 6, 0.94));
+  background: linear-gradient(145deg, rgba(36, 28, 12, 0.94), rgba(22, 17, 8, 0.97));
+  background-clip: padding-box;
   border: 1px solid var(--rva-border) !important;
   border-radius: var(--rva-radius);
   box-shadow: var(--rva-shadow-sm);
@@ -392,7 +393,7 @@ a:hover > .logo-main {
   color: var(--rva-text);
   background: rgba(255, 255, 255, 0.025);
   border-bottom: 1px solid var(--rva-border);
-  border-radius: var(--rva-radius) var(--rva-radius) 0 0 !important;
+  border-radius: calc(var(--rva-radius) - 1px) calc(var(--rva-radius) - 1px) 0 0 !important;
   font-size: 0.88rem;
   letter-spacing: 0.01em;
 }
@@ -426,7 +427,7 @@ a:hover > .logo-main {
   overflow: hidden;
   background:
     radial-gradient(circle at 80% 10%, rgba(247, 201, 72, 0.12), transparent 9rem),
-    linear-gradient(145deg, rgba(32, 25, 11, 0.94), rgba(12, 10, 6, 0.96));
+    linear-gradient(145deg, rgba(36, 28, 12, 0.96), rgba(22, 17, 8, 0.98));
   transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
 }
 
@@ -465,10 +466,24 @@ a:hover > .logo-main {
 }
 
 #logo-panel {
+  display: block;
+  height: auto;
+  max-height: 114px;
   width: auto;
   max-width: 100%;
   object-fit: contain;
   filter: drop-shadow(0 14px 28px rgba(var(--rva-primary-rgb), 0.28));
+}
+
+.logo-panel-card#pnlOne,
+.logo-panel-card#pnlTwo,
+.logo-panel-card#pnlThree,
+.logo-panel-card#pnlFour,
+.logo-panel-card#pnlFive {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 10px;
 }
 
 /* Forms and controls */
