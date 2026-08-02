@@ -17,7 +17,7 @@ function send_block_data(res, block, txs, title_text, orphan) {
       customHash: get_custom_hash(),
       styleHash: get_style_hash(),
       themeHash: get_theme_hash(),
-      page_title_prefix: settings.coin.name + ' ' + title_text
+      page_title_prefix: settings.coin.display_name + ' ' + title_text
     }
   );
 }
@@ -35,7 +35,7 @@ function send_tx_data(res, tx, blockcount, orphan) {
       customHash: get_custom_hash(),
       styleHash: get_style_hash(),
       themeHash: get_theme_hash(),
-      page_title_prefix: settings.coin.name + ' ' + 'Transaction ' + tx.txid
+      page_title_prefix: settings.coin.display_name + ' ' + 'Transaction ' + tx.txid
     }
   );
 }
@@ -51,7 +51,7 @@ function send_address_data(res, address, claim_name) {
       customHash: get_custom_hash(),
       styleHash: get_style_hash(),
       themeHash: get_theme_hash(),
-      page_title_prefix: settings.coin.name + ' ' + 'Address ' + (claim_name == null || claim_name == '' ? address.a_id : claim_name)
+      page_title_prefix: settings.coin.display_name + ' ' + 'Address ' + (claim_name == null || claim_name == '' ? address.a_id : claim_name)
     }
   );
 }
@@ -67,7 +67,7 @@ function send_claimaddress_data(res, hash, claim_name) {
       customHash: get_custom_hash(),
       styleHash: get_style_hash(),
       themeHash: get_theme_hash(),
-      page_title_prefix: settings.coin.name + ' Claim Wallet Address' + (hash == null || hash == '' ? '' : ' ' + hash)
+      page_title_prefix: settings.coin.display_name + ' Claim Wallet Address' + (hash == null || hash == '' ? '' : ' ' + hash)
     }
   );
 }
@@ -289,7 +289,7 @@ function route_get_txlist(res, error) {
         customHash: get_custom_hash(),
         styleHash: get_style_hash(),
         themeHash: get_theme_hash(),
-        page_title_prefix: settings.coin.name + ' ' + 'Block Explorer'
+        page_title_prefix: settings.coin.display_name + ' ' + 'Block Explorer'
       }
     );
   });
@@ -373,7 +373,7 @@ router.get('/info', function(req, res) {
         customHash: get_custom_hash(),
         styleHash: get_style_hash(),
         themeHash: get_theme_hash(),
-        page_title_prefix: settings.coin.name + ' Public API',
+        page_title_prefix: settings.coin.display_name + ' Public API',
         pluginApisExt: pluginApisExt
       }
     );
@@ -480,7 +480,7 @@ router.get('/richlist', function(req, res) {
                 customHash: get_custom_hash(),
                 styleHash: get_style_hash(),
                 themeHash: get_theme_hash(),
-                page_title_prefix: 'Top ' + settings.coin.name + ' Coin Holders'
+                page_title_prefix: 'Top ' + settings.coin.display_name + ' Coin Holders'
               }
             );
           });
@@ -510,7 +510,7 @@ router.get('/movement', function(req, res) {
           customHash: get_custom_hash(),
           styleHash: get_style_hash(),
           themeHash: get_theme_hash(),
-          page_title_prefix: settings.coin.name + ' ' + 'Coin Movements'
+          page_title_prefix: settings.coin.display_name + ' ' + 'Coin Movements'
         }
       );
     });
@@ -534,7 +534,7 @@ router.get('/network', function(req, res) {
           customHash: get_custom_hash(),
           styleHash: get_style_hash(),
           themeHash: get_theme_hash(),
-          page_title_prefix: settings.coin.name + ' ' + 'Network Peers'
+          page_title_prefix: settings.coin.display_name + ' ' + 'Network Peers'
         }
       );
     });
@@ -559,7 +559,7 @@ router.get('/masternodes', function(req, res) {
           customHash: get_custom_hash(),
           styleHash: get_style_hash(),
           themeHash: get_theme_hash(),
-          page_title_prefix: settings.coin.name + ' ' + 'Masternodes'
+          page_title_prefix: settings.coin.display_name + ' ' + 'Masternodes'
         }
       );
     });
@@ -600,7 +600,7 @@ router.get('/reward', function(req, res) {
             customHash: get_custom_hash(),
             styleHash: get_style_hash(),
             themeHash: get_theme_hash(),
-            page_title_prefix: settings.coin.name + ' Reward/Voting Details'
+            page_title_prefix: settings.coin.display_name + ' Reward/Voting Details'
           }
         );
       });
@@ -645,7 +645,7 @@ router.get('/orphans', function(req, res) {
           customHash: get_custom_hash(),
           styleHash: get_style_hash(),
           themeHash: get_theme_hash(),
-          page_title_prefix: settings.localization.orphan_title.replace('{1}', settings.coin.name)
+          page_title_prefix: settings.localization.orphan_title.replace('{1}', settings.coin.display_name)
         }
       );
     });
