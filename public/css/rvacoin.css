@@ -304,14 +304,14 @@ a:hover > .logo-main {
 #page-header-container {
   position: relative;
   overflow: hidden;
-  min-height: 132px;
-  padding: clamp(1.3rem, 3vw, 2.15rem);
+  min-height: 104px;
+  padding: 1rem 1.25rem;
   background:
-    radial-gradient(circle at 90% 20%, rgba(247, 201, 72, 0.14), transparent 15rem),
-    linear-gradient(135deg, rgba(247, 201, 72, 0.1), rgba(20, 16, 8, 0.86) 46%, rgba(5, 4, 3, 0.95));
+    radial-gradient(circle at 90% 20%, rgba(247, 201, 72, 0.08), transparent 15rem),
+    linear-gradient(135deg, rgba(247, 201, 72, 0.06), rgba(20, 16, 8, 0.72) 46%, rgba(5, 4, 3, 0.82));
   border: 1px solid var(--rva-border);
-  border-radius: var(--rva-radius-lg);
-  box-shadow: var(--rva-shadow-lg);
+  border-radius: var(--rva-radius);
+  box-shadow: var(--rva-shadow-sm);
 }
 
 #page-header-container::after {
@@ -331,22 +331,22 @@ a:hover > .logo-main {
   position: relative;
   z-index: 1;
   display: grid;
-  flex: 0 0 76px;
-  width: 76px;
-  height: 76px;
-  margin-right: 1.25rem;
+  flex: 0 0 62px;
+  width: 62px;
+  height: 62px;
+  margin-right: 1rem;
   overflow: hidden;
   background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(var(--rva-primary-rgb), 0.12));
   border: 1px solid var(--rva-border-strong);
-  border-radius: 20px;
-  box-shadow: inset 0 1px rgba(255, 255, 255, 0.08), 0 16px 35px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.06), 0 8px 18px rgba(0, 0, 0, 0.2);
   place-items: center;
 }
 
 #header-img {
-  max-width: 58px;
-  max-height: 58px;
-  filter: drop-shadow(0 8px 15px rgba(var(--rva-primary-rgb), 0.34));
+  max-width: 48px;
+  max-height: 48px;
+  filter: drop-shadow(0 5px 10px rgba(var(--rva-primary-rgb), 0.25));
 }
 
 #page-title-container {
@@ -356,19 +356,19 @@ a:hover > .logo-main {
 }
 
 #page-title {
-  margin: 0 0 0.45rem;
+  margin: 0 0 0.25rem;
   color: #fff;
-  font-size: clamp(1.65rem, 3vw, 2.5rem);
-  font-weight: 800;
-  letter-spacing: -0.045em;
-  line-height: 1.08;
+  font-size: clamp(1.45rem, 2.5vw, 2rem);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1.12;
 }
 
 .sub-page-header {
   max-width: 64rem;
   color: var(--rva-muted);
-  font-size: 0.94rem;
-  line-height: 1.6;
+  font-size: 0.88rem;
+  line-height: 1.4;
 }
 
 /* Cards and dashboard panels */
@@ -955,7 +955,7 @@ pre {
   }
 
   #page-header-container {
-    min-height: 112px;
+    min-height: 100px;
   }
 
   #pnlOne,
@@ -970,21 +970,21 @@ pre {
 @media (max-width: 767.98px) {
   #page-header-container {
     align-items: flex-start !important;
-    padding: 1.2rem;
-    border-radius: 18px;
+    padding: 1rem;
+    border-radius: 15px;
   }
 
   #header-img-container {
-    flex-basis: 60px;
-    width: 60px;
-    height: 60px;
-    margin-right: 0.9rem;
-    border-radius: 16px;
+    flex-basis: 56px;
+    width: 56px;
+    height: 56px;
+    margin-right: 0.8rem;
+    border-radius: 14px;
   }
 
   #header-img {
-    max-width: 46px;
-    max-height: 46px;
+    max-width: 44px;
+    max-height: 44px;
   }
 
   #page-title {
@@ -1037,13 +1037,13 @@ pre {
   #page-header-container {
     display: block !important;
     min-height: 0;
-    padding: 1.1rem;
+    padding: 0.9rem;
   }
 
   #header-img-container {
-    width: 52px;
-    height: 52px;
-    margin: 0 0 0.85rem;
+    width: 48px;
+    height: 48px;
+    margin: 0 0 0.65rem;
   }
 
   #page-title {
