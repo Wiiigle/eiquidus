@@ -144,13 +144,13 @@ block content
             img#header-img(src=(settings.shared_pages.page_header.page_title_image == null || settings.shared_pages.page_header.page_title_image.image_path == null || settings.shared_pages.page_header.page_title_image.image_path == '' ? '/img/page-title-img.png' : settings.shared_pages.page_header.page_title_image.image_path))
         #page-title-container
           if settings.claim_address_page.page_header.show_title == true
-            h3#page-title #{settings.localization.claim_title.replace('{1}', settings.coin.name)}
+            h3#page-title #{settings.localization.claim_title.replace('{1}', settings.coin.display_name)}
           if settings.claim_address_page.page_header.show_description == true
             if settings.claim_address_page.page_header.show_title != true
               #page-title-container
-                .sub-page-header.text-muted=settings.localization.claim_description.replace('{1}', settings.coin.name)
+                .sub-page-header.text-muted=settings.localization.claim_description.replace('{1}', settings.coin.display_name)
             else
-              .sub-page-header.text-muted=settings.localization.claim_description.replace('{1}', settings.coin.name)
+              .sub-page-header.text-muted=settings.localization.claim_description.replace('{1}', settings.coin.display_name)
       .cardSpacer.clearfix
     .card.card-default.border-0.cardSpacer
       .card-header
@@ -165,7 +165,7 @@ block content
               span Use the
               span.fw-bold  Sign Message
               span  feature from your
-              span.fw-bold  #{settings.coin.name}
+              span.fw-bold  #{settings.coin.display_name}
               span  wallet to verify ownership of a wallet address that belongs to you.
             br
             div Enter the following data into the wallet software:

@@ -5,7 +5,7 @@ html(lang='en')
     meta(name='viewport' content='width=device-width, initial-scale=1')
     meta(http-equiv='Content-Language', content='en')
     meta(name='version', content=settings.explorer_version + (settings.revision == null || settings.revision == '' ? '' : `-${settings.revision}`))
-    title=(page_title_prefix == null || page_title_prefix == '' ? settings.localization.error_title.replace('{1}', settings.coin.name) : page_title_prefix) + ' - ' + settings.shared_pages.page_title
+    title=(page_title_prefix == null || page_title_prefix == '' ? settings.localization.error_title.replace('{1}', settings.coin.display_name) : page_title_prefix) + ' - ' + settings.shared_pages.page_title
     if settings.shared_pages.favicons.favicon32 != ''
       link(rel='icon', href='/' + settings.shared_pages.favicons.favicon32, sizes='32x32')
     if settings.shared_pages.favicons.favicon128 != ''
@@ -351,7 +351,7 @@ html(lang='en')
           return '<div class="card-header"><strong>Market Cap <span class="small fw-normal">(GBP)</span></strong></div><div class="card-body"><div id="usdMarketCapPanelLoading" class="header-panel"><i class="fa-solid fa-spinner fa-spin-pulse"></i></div><div id="usdMarketCapPanel" class="header-panel" style="display:none;"><span class="fa-solid fa-chart-line"></span><label id="usdMarketCap"></label></div></div>';
         }
         function getLogoPanel() {
-          return `<img id="logo-panel" src="#{settings.shared_pages.logo}" style="height:128px;" alt="${"#{settings.coin.name}".replace(/"/g, '&quot;')} Logo" title="${"#{settings.coin.name}".replace(/"/g, '&quot;')} Logo" />`;
+          return `<img id="logo-panel" src="#{settings.shared_pages.logo}" style="height:128px;" alt="${"#{settings.coin.display_name}".replace(/"/g, '&quot;')} Logo" title="${"#{settings.coin.display_name}".replace(/"/g, '&quot;')} Logo" />`;
         }
         function getSpacerPanel() {
           return `<div class="panel_spacer"></div>`;
@@ -1155,9 +1155,9 @@ html(lang='en')
             if settings.shared_pages.page_header.home_link == 'title'
               a.navbar-brand(href='/', style='order:-1;') #{settings.shared_pages.page_title}
             else if settings.shared_pages.page_header.home_link == 'coin'
-              a.navbar-brand(href='/', style='order:-1;') #{settings.coin.name}
+              a.navbar-brand(href='/', style='order:-1;') #{settings.coin.display_name}
             else if settings.shared_pages.page_header.home_link == 'logo'
-              a(href='/', alt=settings.coin.name + ' Home', title=settings.coin.name + ' Home', style='order:-1;', data-bs-toggle='tooltip', data-bs-placement='bottom')
+              a(href='/', alt=settings.coin.display_name + ' Home', title=settings.coin.display_name + ' Home', style='order:-1;', data-bs-toggle='tooltip', data-bs-placement='bottom')
                 img.logo-main(src=(settings.shared_pages.page_header.home_link_logo == null || settings.shared_pages.page_header.home_link_logo == '' ? settings.shared_pages.logo : settings.shared_pages.page_header.home_link_logo), style='margin:0;max-height:' + settings.shared_pages.page_header.home_link_logo_height + 'px;')
             .collapse.navbar-collapse(id='navbar-collapse')
               ul.navbar-nav(style='width:100%;')
@@ -1261,9 +1261,9 @@ html(lang='en')
             if settings.shared_pages.page_header.home_link == 'title'
               a.navbar-brand.nav-link(href='/', style='order:-1;') #{settings.shared_pages.page_title}
             else if settings.shared_pages.page_header.home_link == 'coin'
-              a.navbar-brand.nav-link(href='/', style='order:-1;') #{settings.coin.name}
+              a.navbar-brand.nav-link(href='/', style='order:-1;') #{settings.coin.display_name}
             else if settings.shared_pages.page_header.home_link == 'logo'
-              a(href='/', alt=settings.coin.name + ' Home', title=settings.coin.name + ' Home', style='order:-1;', data-bs-toggle='tooltip', data-bs-placement='bottom')
+              a(href='/', alt=settings.coin.display_name + ' Home', title=settings.coin.display_name + ' Home', style='order:-1;', data-bs-toggle='tooltip', data-bs-placement='bottom')
                 img.logo-main(src=(settings.shared_pages.page_header.home_link_logo == null || settings.shared_pages.page_header.home_link_logo == '' ? settings.shared_pages.logo : settings.shared_pages.page_header.home_link_logo), style='margin:0;max-height:' + settings.shared_pages.page_header.home_link_logo_height + 'px;')
             a#side-header-toggle.side-header-toggle(href='#')
               span.fa-solid.fa-bars(alt='Expand Menu', title='Expand Menu', data-bs-toggle='tooltip', data-bs-placement='right', style='width: 24px;')
@@ -1436,7 +1436,7 @@ html(lang='en')
           each social in settings.shared_pages.page_footer.social_links
             if social.enabled
               li.float-start
-                a.nav-link.social-link.border-0(href=social.url, target='_blank', alt=settings.coin.name + ' ' + social.tooltip_text, title=settings.coin.name + ' ' + social.tooltip_text, data-bs-toggle='tooltip', data-bs-placement='top')
+                a.nav-link.social-link.border-0(href=social.url, target='_blank', alt=settings.coin.display_name + ' ' + social.tooltip_text, title=settings.coin.display_name + ' ' + social.tooltip_text, data-bs-toggle='tooltip', data-bs-placement='top')
                   if social.fontawesome_class != null && social.fontawesome_class != ''
                     span(class='vertical-align-middle ' + social.fontawesome_class)
                   else

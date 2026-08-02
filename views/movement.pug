@@ -126,7 +126,7 @@ block content
             img#header-img(src=(settings.shared_pages.page_header.page_title_image == null || settings.shared_pages.page_header.page_title_image.image_path == null || settings.shared_pages.page_header.page_title_image.image_path == '' ? '/img/page-title-img.png' : settings.shared_pages.page_header.page_title_image.image_path))
         #page-title-container
           if settings.movement_page.page_header.show_title == true
-            h3#page-title #{settings.localization.move_title.replace('{1}', settings.coin.name)}
+            h3#page-title #{settings.localization.move_title.replace('{1}', settings.coin.display_name)}
           if settings.movement_page.page_header.show_last_updated == true
             if settings.movement_page.page_header.show_title != true && settings.movement_page.page_header.show_description != true
               #page-title-container
@@ -140,9 +140,9 @@ block content
           if settings.movement_page.page_header.show_description == true
             if settings.movement_page.page_header.show_title != true && settings.movement_page.page_header.show_last_updated != true
               #page-title-container
-                .sub-page-header.text-muted=settings.localization.move_description.replace('{1}', settings.movement_page.movement_table.min_amount).replace('{2}', settings.coin.name)
+                .sub-page-header.text-muted=settings.localization.move_description.replace('{1}', settings.movement_page.movement_table.min_amount).replace('{2}', settings.coin.display_name)
             else
-              .sub-page-header.text-muted=settings.localization.move_description.replace('{1}', settings.movement_page.movement_table.min_amount).replace('{2}', settings.coin.name)
+              .sub-page-header.text-muted=settings.localization.move_description.replace('{1}', settings.movement_page.movement_table.min_amount).replace('{2}', settings.coin.display_name)
       .cardSpacer.clearfix
     .card.card-default.border-0.cardSpacer
       .card-header

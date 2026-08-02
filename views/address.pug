@@ -137,13 +137,13 @@ block content
             img#header-img(src=(settings.shared_pages.page_header.page_title_image == null || settings.shared_pages.page_header.page_title_image.image_path == null || settings.shared_pages.page_header.page_title_image.image_path == '' ? '/img/page-title-img.png' : settings.shared_pages.page_header.page_title_image.image_path))
         #page-title-container
           if settings.address_page.page_header.show_title == true
-            h3#page-title #{settings.localization.a_title.replace('{1}', settings.coin.name)}
+            h3#page-title #{settings.localization.a_title.replace('{1}', settings.coin.display_name)}
           if settings.address_page.page_header.show_description == true
             if settings.address_page.page_header.show_title != true
               #page-title-container
-                .sub-page-header.text-muted=settings.localization.a_description.replace('{1}', settings.coin.name).replace('{2}', (address.a_id == 'hidden_address' ? settings.localization.hidden_address : (address.a_id == 'unknown_address' ? settings.localization.unknown_address : address.a_id)))
+                .sub-page-header.text-muted=settings.localization.a_description.replace('{1}', settings.coin.display_name).replace('{2}', (address.a_id == 'hidden_address' ? settings.localization.hidden_address : (address.a_id == 'unknown_address' ? settings.localization.unknown_address : address.a_id)))
             else
-              .sub-page-header.text-muted=settings.localization.a_description.replace('{1}', settings.coin.name).replace('{2}', (address.a_id == 'hidden_address' ? settings.localization.hidden_address : (address.a_id == 'unknown_address' ? settings.localization.unknown_address : address.a_id)))
+              .sub-page-header.text-muted=settings.localization.a_description.replace('{1}', settings.coin.display_name).replace('{2}', (address.a_id == 'hidden_address' ? settings.localization.hidden_address : (address.a_id == 'unknown_address' ? settings.localization.unknown_address : address.a_id)))
       .cardSpacer.clearfix
     .card.card-default.border-0.card-address-summary.cardSpacer
       .card-header(style='position:relative;')
