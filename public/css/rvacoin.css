@@ -645,25 +645,26 @@ a:hover > .logo-main {
   --bs-table-hover-bg: rgba(var(--rva-primary-rgb), 0.075);
   --bs-table-hover-color: #fff;
   margin-bottom: 0;
-  color: var(--rva-text-soft);
-  border-color: var(--rva-border);
+  color: var(--rva-muted);
+  border-color: rgba(var(--rva-primary-rgb), 0.12);
+  font-size: 0.9rem;
   vertical-align: middle;
 }
 
 .table > :not(caption) > * > * {
-  padding: 0.95rem 0.85rem;
+  padding: 0.68rem 0.72rem;
   background-color: transparent;
-  border-bottom-color: var(--rva-border);
+  border-bottom-color: rgba(var(--rva-primary-rgb), 0.1);
   box-shadow: none;
 }
 
 .table thead th {
   color: #fff;
   background: linear-gradient(180deg, rgba(var(--rva-primary-rgb), 0.12), rgba(18, 14, 7, 0.72));
-  border-bottom: 1px solid var(--rva-border-strong);
-  font-size: 0.76rem;
-  font-weight: 760;
-  letter-spacing: 0.055em;
+  border-bottom: 1px solid rgba(var(--rva-primary-rgb), 0.24);
+  font-size: 0.72rem;
+  font-weight: 650;
+  letter-spacing: 0.045em;
   text-transform: uppercase;
   white-space: nowrap;
 }
@@ -679,7 +680,7 @@ a:hover > .logo-main {
 
 .table tbody td,
 .table tbody th {
-  color: var(--rva-text-soft);
+  color: var(--rva-muted);
 }
 
 .table tbody td.table-success,
@@ -703,7 +704,25 @@ a:hover > .logo-main {
 }
 
 .table td a {
-  font-weight: 600;
+  font-weight: 500;
+}
+
+.table tbody a > .fa-solid,
+.table tbody a > .fa-regular,
+.table tbody a > .fa-brands {
+  display: inline-grid;
+  width: 28px;
+  height: 28px;
+  background: rgba(var(--rva-primary-rgb), 0.075);
+  border: 1px solid rgba(var(--rva-primary-rgb), 0.14);
+  border-radius: 8px;
+  place-items: center;
+}
+
+.table .badge,
+.table .btn,
+.table .input-group-text {
+  border-radius: 8px;
 }
 
 .table-bordered > :not(caption) > * {
@@ -1093,7 +1112,7 @@ pre {
   }
 
   .table > :not(caption) > * > * {
-    padding: 0.78rem 0.62rem;
+    padding: 0.58rem 0.55rem;
   }
 
   #footer-container {
