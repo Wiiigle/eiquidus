@@ -403,8 +403,20 @@ html(lang='en')
             document.getElementById(panelName).innerHTML = getActivePanel(panelID);
 
             if (panelID == 'logo_panel') {
-              // remove css classes from logo panel
-              $(oPanel).removeClass().addClass('logo-panel-card');
+              // retain the card spacing so the transparent logo panel matches the height of adjacent panels
+              $(oPanel).addClass('logo-panel-card').css({
+                alignItems: 'center',
+                background: 'transparent',
+                border: '0',
+                boxShadow: 'none',
+                display: 'flex',
+                height: 'calc(100% - 1.25rem)',
+                justifyContent: 'center',
+                minHeight: '130px',
+                overflow: 'hidden',
+                padding: '7px 10px',
+                position: 'relative'
+              });
             }
           }
         }
