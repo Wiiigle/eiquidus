@@ -848,6 +848,16 @@ pre {
   width: auto;
 }
 
+#side-nav-bar.show-menu .nav-item.active > .nav-link,
+#side-nav-bar.show-menu .nav-link.active {
+  color: var(--rva-primary-bright);
+  background: rgba(var(--rva-primary-rgb), 0.14);
+  border: 1px solid rgba(var(--rva-primary-rgb), 0.32);
+  border-radius: 10px;
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.05), 0 5px 14px rgba(0, 0, 0, 0.16);
+  transform: none;
+}
+
 #side-offcanvas {
   background: var(--rva-bg);
   border: 0;
