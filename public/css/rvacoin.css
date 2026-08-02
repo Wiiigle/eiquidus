@@ -447,9 +447,9 @@ a:hover > .logo-main {
   min-height: 48px;
   gap: 0.7rem;
   color: #fff;
-  font-size: clamp(1.1rem, 2vw, 1.45rem);
-  font-weight: 760;
-  letter-spacing: -0.035em;
+  font-size: clamp(1.05rem, 1.8vw, 1.35rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
 }
 
 .header-panel > span:first-child,
