@@ -467,12 +467,16 @@ a:hover > .logo-main {
 
 #logo-panel {
   display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
   height: auto;
   max-height: 114px;
   width: auto;
   max-width: 100%;
   object-fit: contain;
   filter: drop-shadow(0 14px 28px rgba(var(--rva-primary-rgb), 0.28));
+  transform: translate(-50%, -50%);
 }
 
 .logo-panel-card#pnlOne,
@@ -481,9 +485,13 @@ a:hover > .logo-main {
 .logo-panel-card#pnlFour,
 .logo-panel-card#pnlFive {
   display: flex !important;
+  position: relative;
   align-items: center;
   justify-content: center;
   padding: 7px 10px;
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none;
 }
 
 /* Forms and controls */
