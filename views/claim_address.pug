@@ -205,8 +205,9 @@ block content
                 input#address.form-control(type='text', value=hash, readonly='readonly', maxlength='70')
           .form-group
             fieldset.entryField
-              label.form-label.mt-3(for='message') Display Name
-              input#message.form-control(type='text', placeholder='Display Name', maxlength='50')
+              label.form-label.mt-3(for='message') Message to Sign (Display Name)
+              input#message.form-control(type='text', placeholder='Enter the exact message to sign', maxlength='50', aria-describedby='messageHelp')
+              #messageHelp.form-text This exact message will be shown as the display name for the claimed address.
           .form-group
             fieldset.entryField
               label.form-label.mt-3(for='signature') Signature
