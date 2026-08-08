@@ -22,7 +22,7 @@ block content
         $('#claimForm').on('submit', function (e) {
           e.preventDefault();
           var address = $('input#address').val();
-          var message = $('input#message').val();
+          var displayName = $('input#displayName').val();
           var signature = $('input#signature').val();
           var recaptcha2 = ($('#g-recaptcha-response').length > 0 ? $('#g-recaptcha-response').val() : '');
           var hcaptcha = ($('textarea[name^="h-captcha-response"]').length > 0 ? $('textarea[name^="h-captcha-response"]').val() : '');
@@ -79,7 +79,7 @@ block content
       function showClaimAlert(claimClass, warnMsg, removedClaim) {
         if ($('#claimAlert').length == 0)
           $('<div id="claimAlert"></div>').insertBefore('#claimForm');
-        $('#claimAlert').html(generateAlertHTML(claimClass, true, (claimClass == 'success' ? (removedClaim ? 'Address claim removed successfully' : 'Address claimed successfully') : (claimClass == 'danger' ? 'Failed to claim address' : 'Required field missing')), (claimClass == 'success' ? '<strong>' + $('input#address').val() + '</strong> will now be referred to as <strong>' + (removedClaim ? $('input#address').val() : displayAsText($('#message').val())) + '</strong> throughout the website' : warnMsg) + '.'));
+        $('#claimAlert').html(generateAlertHTML(claimClass, true, (claimClass == 'success' ? (removedClaim ? 'Address claim removed successfully' : 'Address claimed successfully') : (claimClass == 'danger' ? 'Failed to claim address' : 'Required field missing')), (claimClass == 'success' ? '<strong>' + $('input#address').val() + '</strong> will now be referred to as <strong>' + (removedClaim ? $('input#address').val() : displayAsText($('#displayName').val())) + '</strong> throughout the website' : warnMsg) + '.'));
         fixFooterHeightAndPosition();
       }
       function generateAlertHTML(alertClass, allowDismiss, headerText, msgText) {
@@ -97,7 +97,8 @@ block content
 
         let postData = {
           'address': $('input#address').val(),
-          'message': $('input#message').val(),
+          'display_name': $('input#displayName').val(),
+          'message': $('input#displayName').val(),
           'signature': $('input#signature').val()
         };
 
@@ -110,7 +111,7 @@ block content
           data: postData
         })
         .done(function(data) {
-          showClaimAlert((data.status == 'success' ? 'success' : 'danger'), data.message, (data.status == 'success' && postData.message == ''));
+          showClaimAlert((data.status == 'success' ? 'success' : 'danger'), data.message, (data.status == 'success' && postData.display_name == ''));
 
           if (
             '#{selected_captcha_name}' == 'google_recaptcha2' &&
@@ -172,13 +173,13 @@ block content
             br
             div
               span.fw-bold Address:
-              if hash == null || hash == ''
-                span=' <wallet address from the form below>'
-              else
-                span  #{hash}
+              span=' <wallet address from the form below>'
+            div
+              span.fw-bold Custom display name:
+              span=' <custom display name from the form below>'
             div
               span.fw-bold Message:
-              span=' <display name from the form below>'
+              span=' <custom display name from the form below>'
             br
             div
               span Click the
@@ -194,20 +195,17 @@ block content
             br
             div
               span.fw-bold NOTE:
-              span  You can update your claimed address at any time, as often as you wish. To remove a previously claimed display name, simply sign a blank message to return the address back to its original value.
+              span  You can update your claimed address at any time, as often as you wish. To remove a previously claimed display name, leave Custom Display Name blank and provide a valid signed message to return the address to its original value.
         form#claimForm
           .form-group
             fieldset.entryField
               label.form-label(for='address') Wallet Address
-              if hash == null || hash == ''
-                input#address.form-control(type='text', maxlength='70')
-              else
-                input#address.form-control(type='text', value=hash, readonly='readonly', maxlength='70')
+              input#address.form-control(type='text', value=(hash == null ? '' : hash), placeholder='Enter the wallet address to claim', maxlength='70')
           .form-group
             fieldset.entryField
-              label.form-label.mt-3(for='message') Message to Sign
-              input#message.form-control(type='text', placeholder='Enter your custom display name', maxlength='50', aria-describedby='messageHelp')
-              #messageHelp.form-text.claim-form-help Enter this exact text in your wallet. It will become the custom display name for this address.
+              label.form-label.mt-3(for='displayName') Custom Display Name
+              input#displayName.form-control(type='text', placeholder='Enter your custom display name', maxlength='50', aria-describedby='displayNameHelp')
+              #displayNameHelp.form-text.claim-form-help Sign this exact text in your wallet. It will replace the wallet address across the explorer.
           .form-group
             fieldset.entryField
               label.form-label.mt-3(for='signature') Signature
