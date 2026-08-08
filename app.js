@@ -270,11 +270,29 @@ app.post("/claim", function (req, res) {
           message: "The captcha validation failed",
         });
       } else {
+        // New claim forms submit the display name separately from the signed
+        // ownership message. Fall back to the message for older W3Sign clients.
+        const displayName =
+          typeof req.body.display_name == "string"
+            ? req.body.display_name
+            : req.body.message;
+        const signedMessage =
+          typeof req.body.message == "string" ? req.body.message : "";
+
+        // The signature must bind the requested display name. Without this
+        // check, a valid signature for an unrelated message could be replayed
+        // to assign an arbitrary name to the address.
+        if (displayName !== signedMessage) {
+          return res.json({
+            status: "failed",
+            error: true,
+            message: "Message to Sign must exactly match Custom Display Name",
+          });
+        }
+
         // filter bad words if enabled
         filter_bad_words(
-          req.body.message == null || req.body.message == ""
-            ? ""
-            : req.body.message,
+          displayName == null || displayName == "" ? "" : displayName,
           function (claim_error, message) {
             // check if there was an error or if the message was filtered
             if (claim_error != null) {
@@ -284,12 +302,12 @@ app.post("/claim", function (req, res) {
                 error: true,
                 message: "Error loading the bad-words filter: " + claim_error,
               });
-            } else if (message == req.body.message) {
+            } else if (message == displayName) {
               // call the verifymessage api
               lib.verify_message(
                 req.body.address,
                 req.body.signature,
-                req.body.message,
+                signedMessage,
                 function (body) {
                   if (body == false)
                     res.json({
@@ -300,7 +318,7 @@ app.post("/claim", function (req, res) {
                   else if (body == true) {
                     db.update_claim_name(
                       req.body.address,
-                      req.body.message,
+                      displayName,
                       function (val) {
                         // check if the update was successful
                         if (val == "") res.json({ status: "success" });
