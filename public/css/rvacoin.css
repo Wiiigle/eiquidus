@@ -527,6 +527,11 @@ a:hover > .logo-main {
   box-shadow: 0 0 0 0.18rem rgba(var(--rva-primary-rgb), 0.08);
 }
 
+#claimForm .claim-form-help {
+  color: var(--rva-muted);
+  font-size: 0.875rem;
+}
+
 .form-control:focus,
 .form-select:focus,
 .dataTables_wrapper select:focus,
