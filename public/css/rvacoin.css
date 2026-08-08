@@ -510,6 +510,23 @@ a:hover > .logo-main {
   color: #8f8463;
 }
 
+/* Keep the long wallet address from becoming the brightest element in the
+ * claim form, particularly when Bootstrap applies its read-only styling. */
+#claimForm #address,
+#claimForm #address[readonly] {
+  color: var(--rva-text-soft);
+  background-color: rgba(7, 6, 4, 0.54);
+  border-color: rgba(var(--rva-primary-rgb), 0.16);
+  box-shadow: none;
+}
+
+#claimForm #address:focus {
+  color: var(--rva-text);
+  background-color: rgba(7, 6, 4, 0.72);
+  border-color: rgba(var(--rva-primary-rgb), 0.38);
+  box-shadow: 0 0 0 0.18rem rgba(var(--rva-primary-rgb), 0.08);
+}
+
 .form-control:focus,
 .form-select:focus,
 .dataTables_wrapper select:focus,
