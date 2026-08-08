@@ -30,6 +30,24 @@ describe('Wiiicoin message verifier', () => {
     expect(verifier.verifyMessage(address, signature, message)).toBe(true);
   });
 
+  it('accepts the Qt namespace authorization signature regression vector', () => {
+    expect(verifier.verifyMessage(
+      '2Yp8EEExLydafWSbQZTfybKYYxo1HMNYVz',
+      'IN7GblboGIA6S3yFgfLTVD2kgIIpFzlYeRH4c2FZxCTNWrimjAMmJPqrRvVibHQ5AucTmd0o9f1HH/MSL9kiWWw=',
+      '1234'
+    )).toBe(true);
+  });
+
+  it('accepts signatures from older W3Sign releases with the incorrect Wiiicoin prefix length', () => {
+    const signature = bitcoinMessage
+      .sign(message, privateKey, true, verifier.LEGACY_WIIICOIN_MESSAGE_PREFIX, {
+        segwitType: 'p2sh(p2wpkh)',
+      })
+      .toString('base64');
+
+    expect(verifier.verifyMessage(address, signature, message)).toBe(true);
+  });
+
   it('accepts older W3Sign signatures using the Bitcoin prefix', () => {
     const signature = bitcoinMessage
       .sign(message, privateKey, true, { segwitType: 'p2sh(p2wpkh)' })
